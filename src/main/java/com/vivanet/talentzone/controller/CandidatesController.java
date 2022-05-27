@@ -10,5 +10,4 @@ public class CandidatesController {
     public String hello() {
         return "Hello World";
     }
-
 }
