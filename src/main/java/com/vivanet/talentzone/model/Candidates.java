@@ -1,5 +1,7 @@
 package com.vivanet.talentzone.model;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -25,24 +27,13 @@ public class Candidates {
 	private int percentage;
 	private int experience;
 	private String experienceLevel;
+	private String companyName;
+	private String location;
+	private List<String> skills;
 	
 	public Candidates() {
 		super();
 		
-	}
-
-	public Candidates(String firstName, String lastName, String qualification, String designation,
-			String universityName, int passoutYear, int percentage, int experience, String experienceLevel) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.qualification = qualification;
-		this.designation = designation;
-		this.universityName = universityName;
-		this.passoutYear = passoutYear;
-		this.percentage = percentage;
-		this.experience = experience;
-		this.experienceLevel = experienceLevel;
 	}
 
 	public ObjectId getId() {
@@ -123,6 +114,29 @@ public class Candidates {
 
 	public void setExperienceLevel(String experienceLevel) {
 		this.experienceLevel = experienceLevel;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public List<String> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
 	}
 
 
