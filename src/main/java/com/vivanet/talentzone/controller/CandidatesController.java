@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.vivanet.talentzone.model.Candidates;
 import com.vivanet.talentzone.repository.CandidatesRepository;
-
 
 @RestController
 public class CandidatesController {
@@ -26,6 +24,7 @@ public class CandidatesController {
     	repository.insert(candidates);
     	return new ResponseEntity<>(HttpStatus.CREATED);
     }
+    
     @GetMapping("/candidates")
      public ResponseEntity<List<Candidates>>getcandidates(){
     	return new ResponseEntity<>(repository.findAll(),(HttpStatus.OK));

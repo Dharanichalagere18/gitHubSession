@@ -1,11 +1,8 @@
 package com.vivanet.talentzone.model;
-
 import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,8 +15,7 @@ import lombok.ToString;
 public class Candidates {
 	@Id
 	private ObjectId id;
-	private String firstName;
-	private String lastName;
+	private String fullName;
 	private String qualification;
 	private String designation;
 	private String universityName;
@@ -44,20 +40,12 @@ public class Candidates {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getQualification() {
@@ -131,6 +119,7 @@ public class Candidates {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
 	public List<String> getSkills() {
 		return skills;
 	}
@@ -138,7 +127,5 @@ public class Candidates {
 	public void setSkills(List<String> skills) {
 		this.skills = skills;
 	}
-
-
 }
 
