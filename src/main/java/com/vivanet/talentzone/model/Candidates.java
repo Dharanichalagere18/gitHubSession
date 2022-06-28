@@ -20,7 +20,7 @@ public class Candidates {
 	private String designation;
 	private String universityName;
 	private int passoutYear;
-	private int percentage;
+	private Float percentage;
 	private int experience;
 	private String experienceLevel;
 	private String companyName;
@@ -28,8 +28,7 @@ public class Candidates {
 	private List<String> skills;
 	
 	public Candidates() {
-		super();
-		
+		super();	
 	}
 
 	public ObjectId getId() {
@@ -80,11 +79,11 @@ public class Candidates {
 		this.passoutYear = passoutYear;
 	}
 
-	public int getPercentage() {
+	public Float getPercentage() {
 		return percentage;
 	}
 
-	public void setPercentage(int percentage) {
+	public void setPercentage(Float percentage) {
 		this.percentage = percentage;
 	}
 
