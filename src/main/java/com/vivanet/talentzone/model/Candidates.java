@@ -1,5 +1,5 @@
 package com.vivanet.talentzone.model;
-import java.util.List;
+import java.util.Map;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,10 +22,12 @@ public class Candidates {
 	private int passoutYear;
 	private Float percentage;
 	private int experience;
-	private String experienceLevel;
 	private String companyName;
 	private String location;
-	private List<String> skills;
+	private Map<String, Integer> skillWithRatings;
+	private String gitHubUrl;
+	private String linkedInUrl;
+	private String portfolioUrl;
 	
 	public Candidates() {
 		super();	
@@ -95,14 +97,6 @@ public class Candidates {
 		this.experience = experience;
 	}
 
-	public String getExperienceLevel() {
-		return experienceLevel;
-	}
-
-	public void setExperienceLevel(String experienceLevel) {
-		this.experienceLevel = experienceLevel;
-	}
-
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -119,12 +113,35 @@ public class Candidates {
 		this.location = location;
 	}
 
-	public List<String> getSkills() {
-		return skills;
+	public Map<String, Integer> getSkillWithRatings() {
+		return skillWithRatings;
 	}
 
-	public void setSkills(List<String> skills) {
-		this.skills = skills;
+	public void setSkillWithRatings(Map<String, Integer> skillWithRatings) {
+		this.skillWithRatings = skillWithRatings;
+	}
+
+	public String getGitHubUrl() {
+		return gitHubUrl;
+	}
+
+	public void setGitHubUrl(String gitHubUrl) {
+		this.gitHubUrl = gitHubUrl;
+	}
+
+	public String getLinkedInUrl() {
+		return linkedInUrl;
+	}
+
+	public void setLinkedInUrl(String linkedInUrl) {
+		this.linkedInUrl = linkedInUrl;
+	}
+
+	public String getPortfolioUrl() {
+		return portfolioUrl;
+	}
+
+	public void setPortfolioUrl(String portfolioUrl) {
+		this.portfolioUrl = portfolioUrl;
 	}
 }
-
