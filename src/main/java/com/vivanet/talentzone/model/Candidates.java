@@ -1,4 +1,5 @@
 package com.vivanet.talentzone.model;
+
 import java.util.Map;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -11,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 
-@Document(collection="candidates")
+@Document(collection = "candidates")
 public class Candidates {
 	@Id
 	private ObjectId id;
@@ -28,11 +29,19 @@ public class Candidates {
 	private String gitHubUrl;
 	private String linkedInUrl;
 	private String portfolioUrl;
-	
+	private byte[] resume;
+	private String resumename;;
+    private String fileType;
+    private String fileSize;
+
 	public Candidates() {
-		super();	
+		super();
 	}
 
+	public Candidates (String fullName) {
+		this.fullName = fullName;
+	}
+	
 	public ObjectId getId() {
 		return id;
 	}
@@ -144,4 +153,36 @@ public class Candidates {
 	public void setPortfolioUrl(String portfolioUrl) {
 		this.portfolioUrl = portfolioUrl;
 	}
+	
+	public byte[] getResume() {
+        return resume;
+    }
+
+    public void setResume(byte[] resume) {
+        this.resume = resume;
+    }
+
+    public String getResumename() {
+        return resumename;
+    }
+
+    public void setResumename(String resumename) {
+        this.resumename = resumename;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public String getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
+    }
 }
