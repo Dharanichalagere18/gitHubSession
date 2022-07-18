@@ -35,7 +35,7 @@ public class CandidatesController {
     @RequestMapping(path  = "/candidates", method = RequestMethod.POST ,consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<Object> insertcandidates(@RequestPart String candidates,@RequestParam("resume")MultipartFile resume)throws IOException{
         ObjectMapper mapper = new ObjectMapper();
-        Candidates candidate = mapper.convertValue(candidates, Candidates.class);
+        Candidates candidate = mapper.readValue(candidates, Candidates.class);
         String fileID = fileService.addFile(resume);
         candidate.setResumename(fileID);
         repository.insert(candidate);
