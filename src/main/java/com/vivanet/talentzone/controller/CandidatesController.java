@@ -1,25 +1,27 @@
 package com.vivanet.talentzone.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vivanet.talentzone.model.Candidates;
 import com.vivanet.talentzone.repository.CandidatesRepository;
 import java.io.IOException;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
 import com.vivanet.talentzone.services.FileService;
 
@@ -31,6 +33,18 @@ public class CandidatesController {
 
     @Autowired
     private FileService fileService;
+
+    @PutMapping("/candidates/shortlist/{id}")
+    public ResponseEntity shortlistCandidate(@PathVariable String id) {
+    Optional<Candidates> candidate = repository.findById(id);
+
+    if(candidate.isPresent())
+    {
+        candidate.get().setShortlisted(true);
+        repository.save(candidate.get());
+    }
+    return new ResponseEntity<>(HttpStatus.OK);
+}
     
     @RequestMapping(path  = "/candidates", method = RequestMethod.POST ,consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<Object> insertcandidates(@RequestPart String candidates,@RequestParam("resume")MultipartFile resume)throws IOException{

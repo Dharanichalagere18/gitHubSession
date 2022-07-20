@@ -33,6 +33,7 @@ public class Candidates {
 	private String resumename;;
     private String fileType;
     private String fileSize;
+	private Boolean shortlisted;
 
 	public Candidates() {
 		super();
@@ -185,4 +186,12 @@ public class Candidates {
     public void setFileSize(String fileSize) {
         this.fileSize = fileSize;
     }
+
+	public void setShortlisted(boolean shortlisted) {
+		this.shortlisted = shortlisted;
+	}
+
+	public boolean getShortlisted() {
+		return shortlisted;
+	}
 }
