@@ -1,6 +1,6 @@
 package com.vivanet.talentzone.controller;
 
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +45,14 @@ public class CandidatesController {
     }
     return new ResponseEntity<>(HttpStatus.OK);
 }
+    @GetMapping("/candidates/{id}")
+    public ResponseEntity<Object> getCandidates() {
+        if(Candidates.isPresent()) {
+            return ResponseEntity.ok().body(Candidates.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     
     @RequestMapping(path  = "/candidates", method = RequestMethod.POST ,consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<Object> insertcandidates(@RequestPart String candidates,@RequestParam("resume")MultipartFile resume)throws IOException{
@@ -56,10 +64,10 @@ public class CandidatesController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
  
-    @GetMapping("/candidates")
-    public ResponseEntity<List<Candidates>> getcandidates() {
-        return new ResponseEntity<>(repository.findAll(), (HttpStatus.OK));
-    }
+    // @GetMapping("/candidates/{id}")
+    // public ResponseEntity<List<Candidates>> getcandidates() {
+    //     return new ResponseEntity<>(repository.findAll(), (HttpStatus.OK));
+    // }
 
     public CandidatesRepository getRepository() {
         return repository;

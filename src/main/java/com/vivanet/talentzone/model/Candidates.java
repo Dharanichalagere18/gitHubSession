@@ -194,4 +194,12 @@ public class Candidates {
 	public boolean getShortlisted() {
 		return shortlisted;
 	}
+
+	public static boolean isPresent() {
+		return false;
+	}
+
+    public static Object get() {
+        return null;
+    }
 }
