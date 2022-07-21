@@ -63,6 +63,7 @@ public class CandidatesController {
         repository.insert(candidate);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
  
     // @GetMapping("/candidates/{id}")
     // public ResponseEntity<List<Candidates>> getcandidates() {
